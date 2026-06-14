@@ -65,7 +65,7 @@ while running:
     if keys[pygame.K_SPACE]:
         player_rect.y -= 8
 
-    player_rect.clamp_ip(surface.get_rect())
+    player_rect.clamp_ip(surface.get_rect()) # AI
     enemy_rect.clamp_ip(surface.get_rect())
 
     # Wall bounce
@@ -79,7 +79,7 @@ while running:
     if player_rect.x > enemy_rect.x:
         enemy_rect.x += 4
 
-    # Damage + hurt texture timer
+    # Damage + hurt texture timer AI
     current_time = pygame.time.get_ticks()
 
     if enemy_rect.colliderect(player_rect) and current_time >= hurt_until:
@@ -88,11 +88,11 @@ while running:
 
         hurt_until = current_time + 1500
 
-    # Gravity
+    # Gravity AI
     velocity_y += gravity
     player_rect.y += velocity_y
 
-    # Choose sprite
+    # Choose sprite AI
     if current_time < hurt_until:
         img_load(True)
     else:
@@ -106,7 +106,7 @@ while running:
     surface.blit(char_img, player_rect)
     surface.blit(enemy_img, enemy_rect)
 
-    # Ground collision
+    # Ground collision AI
     if player_rect.bottom >= scrn[1]:
         player_rect.bottom = scrn[1]
         velocity_y = 0
