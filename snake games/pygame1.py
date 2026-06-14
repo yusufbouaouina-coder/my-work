@@ -6,4 +6,4 @@ h = 600
 
 cell_size = 20
 snake = [[300, 300]]
-print()
+scrn = pygame
