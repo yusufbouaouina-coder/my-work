@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../pygame_stuffs"
+		}
+	],
+	"settings": {}
+}
