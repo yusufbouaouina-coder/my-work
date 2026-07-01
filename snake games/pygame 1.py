@@ -52,13 +52,16 @@ def playerhitcall():
     global enemy_hp, enemyhurt, enemykill, attack_time, current_time
 
     if player_hitrange.colliderect(enemy_rect):
-        attack_time = pygame.time.get_ticks() + 500
-        current_time = pygame.time.get_ticks()
+        timer = 0
+        if timer <= 0:
+            enemy_hp -=10
+            enemyhurt = True
+            timer = 100
+            print(f"attaked {enemy_hp}")
+        else:
+            while timer > 0:
+                timer -= 1
 
-    if attack_time != 0 and current_time >= attack_time:
-        enemy_hp -= 10
-        enemyhurt = True
-        print(f"{enemy_hp} attacked")
     else:
         enemyhurt = False
         attack_time = 0
